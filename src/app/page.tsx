@@ -1,3 +1,5 @@
+import './page.scss';
+
 const Home = () => {
   return (
     <>
