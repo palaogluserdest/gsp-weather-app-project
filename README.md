@@ -37,19 +37,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Yapılacaklar
 
-- [x]: Proje dosyasını oluştur.
-- [x]: Projede gerekli olacak klasörleri oluştur. (utils, libs, api ....)
-- [x]: Projenin layout yapısını oluştur.
-- [ ]: Componentleri oluştur
-  - [x]: Navbar
-  - [ ]: Footer
-  - [ ]: Profile
-  - [ ]: Hava durumu component'i
-    - [ ]: Beş günlük hava durumunu gösteren component
-    - [ ]: Seçili günün saatlik hava durumunu gösteren component
-- [ ]: Hava durumunu almak için api bağla (ChatGpt de öneriler var)
-- [ ]: Lokasyon bilgisini almak için Google API bagla
-- [ ]: Kullanıcının seçtiği lokasyonları ve bilgilerini tutmak için Supabase bağlantısı oluştur.
+- [x] Proje dosyasını oluştur.
+- [x] Projede gerekli olacak klasörleri oluştur. (utils, libs, api ....)
+- [x] Projenin layout yapısını oluştur.
+- [ ] Componentleri oluştur
+  - [x] Navbar
+  - [ ] Footer
+  - [ ] Profile
+  - [ ] Hava durumu component'i
+    - [ ] Beş günlük hava durumunu gösteren component
+    - [ ] Seçili günün saatlik hava durumunu gösteren component
+- [ ] Hava durumunu almak için api bağla (ChatGpt de öneriler var)
+- [ ] Lokasyon bilgisini almak için Google API bagla
+- [ ] Kullanıcının seçtiği lokasyonları ve bilgilerini tutmak için Supabase bağlantısı oluştur.
 
 ## Proje Özellikleri
 
