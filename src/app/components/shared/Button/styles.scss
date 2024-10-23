@@ -1,0 +1,18 @@
+@import "../../../styles/variables";
+
+.btn {
+  padding: 10px 30px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  color: white;
+  font-family: $font-prompt, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+  }
+}

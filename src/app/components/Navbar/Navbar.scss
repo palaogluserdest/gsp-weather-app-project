@@ -1,0 +1,40 @@
+@import "../../styles/variables";
+
+.nav-logo {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  flex: 3;
+  font-family: $font-prompt, sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .nav-links-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    .nav-links-item {
+
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.nav-user-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}

@@ -34,3 +34,42 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Yapılacaklar
+
+- [x]: Proje dosyasını oluştur.
+- [x]: Projede gerekli olacak klasörleri oluştur. (utils, libs, api ....)
+- [x]: Projenin layout yapısını oluştur.
+- [ ]: Componentleri oluştur
+  - [x]: Navbar
+  - [ ]: Footer
+  - [ ]: Profile
+  - [ ]: Hava durumu component'i
+    - [ ]: Beş günlük hava durumunu gösteren component
+    - [ ]: Seçili günün saatlik hava durumunu gösteren component
+- [ ]: Hava durumunu almak için api bağla (ChatGpt de öneriler var)
+- [ ]: Lokasyon bilgisini almak için Google API bagla
+- [ ]: Kullanıcının seçtiği lokasyonları ve bilgilerini tutmak için Supabase bağlantısı oluştur.
+
+## Proje Özellikleri
+
+- Ana sayada 5 günlük hava durumu gösterilecek ve seçili olan dışında geri kalanlar kısmı bilgi gösterecek
+- Seçili olan günün altında 24 saatlik hava durumu gösterilecek
+- Günlük hava durumu görünümlerinde olan ya da olacak hava durumunun efekti gözükecek
+- Kullanıcı kayıt olabilecek ve giriş yapabilecek
+- Kullanıcı giriş yaparsa seçtiği lokasyonu favorilerine ekleyebielecek ve ana sayfada favori lokasyonlar için hava durumları gösterilecek
+- Kullanıcı profil sayfasında kayıtlı lokasyonları düzenleyebilecek. (Silme ya da ekleme)
+
+## Hava Durumu API
+
+- Konum Bulmak için:
+
+```http
+https://api.openweathermap.org/geo/1.0/direct?q={location}&limit=5&appid={API Key}
+```
+
+- Hava Durumu için
+
+```http
+https://api.openweathermap.org/data/2.5/forecast?units=metric&lat={}&lon={}&appid={API Key}
+```
