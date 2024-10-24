@@ -1,0 +1,61 @@
+@import '../../styles/variables';
+
+.footer-wrapper {
+  width: 100%;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  // border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  .footer-logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .logo-text {
+      color: #fff;
+      font-family: $font-prompt, sans-serif;
+      font-weight: 900;
+      font-size: 38px;
+    }
+  }
+
+  .footer-text {
+    flex: 3;
+    display: flex;
+    align-items: center;
+
+    .text-content {
+      color: #fff;
+      font-family: $font-prompt, sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+
+      a {
+        color: darkblue;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .footer-social-links {
+    flex: 1;
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+}

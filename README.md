@@ -42,7 +42,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [x] Projenin layout yapısını oluştur.
 - [ ] Componentleri oluştur
   - [x] Navbar
-  - [ ] Footer
+  - [x] Footer
   - [ ] Profile
   - [ ] Hava durumu component'i
     - [ ] Beş günlük hava durumunu gösteren component

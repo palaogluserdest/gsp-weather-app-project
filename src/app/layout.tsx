@@ -5,6 +5,7 @@ import './layout.scss';
 import React from 'react';
 import Image from 'next/image';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const prompt = localFont({
   src: [
@@ -73,7 +74,9 @@ export default function RootLayout({
             <Navbar />
           </nav>
           <main className="main-container">{children}</main>
-          <footer className="footer-container"></footer>
+          <footer className="footer-container">
+            <Footer />
+          </footer>
         </div>
       </body>
     </html>
