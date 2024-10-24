@@ -13,7 +13,7 @@ const NavLink: FC<NavLinkProps> = ({ children, href }) => {
   const path = usePathname();
 
   return (
-    <Link href={href} className={path === href ? 'active' : ''}>
+    <Link href={href} className={`${path === href ? 'nav-active' : ''} navlink`}>
       {children}
     </Link>
   );

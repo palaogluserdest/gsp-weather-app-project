@@ -1,7 +1,7 @@
 @import '../../../styles/animation';
 
 
-a {
+.navlink {
   position: relative;
   display: inline-block;
 
@@ -14,7 +14,7 @@ a {
     background-color: #fff;
   }
 
-  &.active::after {
+  &.nav-active::after {
     animation: .4s ease-in-out forwards slide-in;
   }
 

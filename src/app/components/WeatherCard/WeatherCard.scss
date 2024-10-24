@@ -1,0 +1,73 @@
+@import '../../styles/variables';
+@import '../../styles/animation';
+
+.card-container {
+  width: 80px;
+  height: 500px;
+  background-color: transparent;
+  border-radius: 25px;
+  transition: width .4s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px 20px;
+  font-family: $font-prompt;
+  position: relative;
+  overflow: hidden;
+
+  .card-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .card-date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: 28px;
+    color: white;
+    transition: font-size .3s ease-in-out;
+    height: 15%;
+  }
+
+  .card-icon {
+    height: 45%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .card-temperature {
+    height: 15%;
+    color: #fff;
+    font-size: 52px;
+    font-weight: 600;
+    text-align: center;
+    transition: font-size .3s ease-in-out;
+  }
+
+  .card-info-group {
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    transition: opacity .3s ease-in-out;
+    transition-delay: 0.3s;
+  }
+}
+
+.active {
+  width: 400px;
+}
