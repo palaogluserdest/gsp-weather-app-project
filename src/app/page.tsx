@@ -5,8 +5,14 @@ import './page.scss';
 
 const Home = () => {
   const [expendedCard, setExpendedCard] = useState<number | null>(null);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
   const cards: number[] = [1, 2, 3, 4, 5];
+
+  const handleClick = (index: number) => {
+    setExpendedCard(expendedCard === index ? null : index);
+    setIsMounted(true);
+  };
 
   return (
     <div className="weather-cards">
@@ -15,7 +21,8 @@ const Home = () => {
           key={index}
           id={index}
           isExpended={expendedCard === index}
-          onClick={() => setExpendedCard(expendedCard === index ? null : index)}
+          isMounted={isMounted}
+          onClick={() => handleClick(index)}
         />
       ))}
     </div>

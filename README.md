@@ -40,12 +40,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [x] Proje dosyasını oluştur.
 - [x] Projede gerekli olacak klasörleri oluştur. (utils, libs, api ....)
 - [x] Projenin layout yapısını oluştur.
-- [ ] Componentleri oluştur
-  - [x] Navbar
-  - [x] Footer
-  - [ ] Profile
-  - [ ] Hava durumu component'i
-    - [ ] Beş günlük hava durumunu gösteren component
+- [ ] Components oluştur
+  - [x] Navbar Component
+  - [x] Footer Component
+  - [ ] Profile Component and Page
+  - [ ] Search Bar Component
+  - [x] Weather Component
+    - [x] Weather Component Ana Sayfa da 5 gün için gösterilecek.
     - [ ] Seçili günün saatlik hava durumunu gösteren component
 - [ ] Hava durumunu almak için api bağla (ChatGpt de öneriler var)
 - [ ] Lokasyon bilgisini almak için Google API bagla
@@ -57,7 +58,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Seçili olan günün altında 24 saatlik hava durumu gösterilecek
 - Günlük hava durumu görünümlerinde olan ya da olacak hava durumunun efekti gözükecek
 - Kullanıcı kayıt olabilecek ve giriş yapabilecek
-- Kullanıcı giriş yaparsa seçtiği lokasyonu favorilerine ekleyebielecek ve ana sayfada favori lokasyonlar için hava durumları gösterilecek
+- Kullanıcı giriş yaparsa seçtiği lokasyon favorilerine ekleyebilecek ve ana sayfada favori lokasyonlar için hava durumları gösterilecek
 - Kullanıcı profil sayfasında kayıtlı lokasyonları düzenleyebilecek. (Silme ya da ekleme)
 
 ## Hava Durumu API

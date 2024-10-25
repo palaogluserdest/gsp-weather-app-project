@@ -69,7 +69,7 @@ export default function RootLayout({
               alt="background image"
               style={{ objectFit: 'cover' }}
             /> */}
-            <video src="/assets/videos/snowy.webm" autoPlay loop muted></video>
+            <video src="/assets/videos/rain.webm" autoPlay loop muted></video>
           </div>
           <nav className="navbar-container">
             <Navbar />
