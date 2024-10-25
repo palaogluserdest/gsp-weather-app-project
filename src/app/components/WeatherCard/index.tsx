@@ -9,10 +9,14 @@ type WeatherCardProps = {
   onClick: () => void;
 };
 
-const WeatherCard: FC<WeatherCardProps> = ({ isExpended, isMounted, onClick }) => {
+const WeatherCard: FC<WeatherCardProps> = ({ id, isExpended, isMounted, onClick }) => {
   return (
-    <div className={`${isExpended ? 'active' : ''} card-container`} onClick={onClick}>
-      <video src="/assets/videos/rain.webm" autoPlay loop muted className="card-video-bg"></video>
+    <div
+      className={`${isExpended ? 'active' : ''} card-container`}
+      onClick={onClick}
+      style={{ animationDelay: `${id * 0.2}s` }}
+    >
+      <video src="/assets/videos/snowy.webm" autoPlay loop muted className="card-video-bg"></video>
       <span
         className={`${isMounted ? (isExpended ? ' slide-to-up-animation' : 'slide-from-up-animation') : ''} card-date-day`}
       >
@@ -26,7 +30,7 @@ const WeatherCard: FC<WeatherCardProps> = ({ isExpended, isMounted, onClick }) =
       </span>
       <span className="card-icon">
         <DynamicIcon
-          icon="rainy"
+          icon="sunny"
           size={isExpended ? 150 : 90}
           color="#fff"
           style={{ transition: 'all .6s ease-in-out' }}
