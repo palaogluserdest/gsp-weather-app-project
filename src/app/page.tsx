@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
 import WeatherCard from './components/WeatherCard';
-import './page.scss';
 import SearchBar from './components/SearchBar';
+import { FaRegStar } from 'react-icons/fa6';
+import './page.scss';
 
 const Home = () => {
   const [expendedCard, setExpendedCard] = useState<number | null>(null);
@@ -25,9 +26,14 @@ const Home = () => {
       <div className="weather-cards">
         {inputValue && !isRefresh && (
           <>
-            <h1 className={`${inputValue ? 'slide-from-up-main-animation' : ''} weather-location`}>
-              {inputValue.toLocaleUpperCase('tr')}
-            </h1>
+            <div className="weather-location-group">
+              <h1 className={`${inputValue ? 'slide-from-up-main-animation' : ''} weather-location`}>
+                {inputValue.toLocaleUpperCase('tr')}
+              </h1>
+              <button className="favorite-btn">
+                <FaRegStar size={40} fill="#fff" stroke="#fff" />
+              </button>
+            </div>
             <div className="cards-wrapper">
               {cards.map((card, index) => (
                 <WeatherCard
