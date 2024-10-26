@@ -1,9 +1,43 @@
+@import './styles/variables';
+@import './styles/animation';
+
+.search-bar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .weather-cards {
   padding: 30px 0;
   margin: 10px 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: start;
-  gap: 10px;
+  gap: 15px;
   width: 100%;
+
+  .weather-location {
+    font-family: $font-prompt;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .cards-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+  }
+}
+
+.slide-from-up-animation {
+  animation: 0.3s ease-in forwards slideFromUpMain;
 }

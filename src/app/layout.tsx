@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import './globals.scss';
 import './layout.scss';
 import React from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -63,13 +63,13 @@ export default function RootLayout({
       <body className={`${prompt.variable}`}>
         <div className="container">
           <div className="background-image">
-            {/* <Image
+            <Image
               src="/assets/images/background-picture.webp"
               fill
               alt="background image"
               style={{ objectFit: 'cover' }}
-            /> */}
-            <video src="/assets/videos/rain.webm" autoPlay loop muted></video>
+            />
+            {/* <video src="/assets/videos/clear-weather.webm" autoPlay loop muted></video> */}
           </div>
           <nav className="navbar-container">
             <Navbar />

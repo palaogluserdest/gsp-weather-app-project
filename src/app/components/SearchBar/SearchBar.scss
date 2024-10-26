@@ -1,0 +1,34 @@
+@import '../../styles/variables';
+
+.search-input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 40px;
+  padding: 10px;
+  background-color: white;
+  margin: 0 10px;
+
+  .search-input {
+    width: 100%;
+    padding: 15px 35px;
+    font-family: $font-prompt, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-transform: uppercase;
+  }
+
+  .search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+}
