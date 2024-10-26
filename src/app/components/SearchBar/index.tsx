@@ -34,20 +34,29 @@ const SearchBar: FC<SearchBarProps> = ({ setInputValue, setIsRefresh }) => {
   };
 
   return (
-    <div className="search-input-group">
-      <input
-        type="text"
-        value={value}
-        className="search-input"
-        onKeyDown={handleKeyDownInput}
-        onChange={(e) => setValue(e.target.value)}
-        lang="tr"
-      />
-      <button className="search-button" onClick={handleClickInput}>
-        <FaSearchLocation size={35} color="#000" />
-      </button>
-      <hr />
-    </div>
+    <>
+      <div className="search-input-group">
+        <input
+          type="text"
+          value={value}
+          className="search-input"
+          onKeyDown={handleKeyDownInput}
+          onChange={(e) => setValue(e.target.value)}
+          lang="tr"
+        />
+        <button className="search-button" onClick={handleClickInput}>
+          <FaSearchLocation size={35} color="#000" />
+        </button>
+      </div>
+      <div className="favorite-locations">
+        <button className="favorite-location-btn">DİYARBAKIR</button>
+        <button className="favorite-location-btn">İSTANBUL</button>
+        <button className="favorite-location-btn">ANKARA</button>
+        <button className="favorite-location-btn">ADANA</button>
+        <button className="favorite-location-btn">MERSİN</button>
+        <button className="favorite-location-btn">ELAZIĞ</button>
+      </div>
+    </>
   );
 };
 

@@ -25,7 +25,7 @@ const Home = () => {
       <div className="weather-cards">
         {inputValue && !isRefresh && (
           <>
-            <h1 className={`${inputValue ? 'slide-from-up-animation' : ''} weather-location`}>
+            <h1 className={`${inputValue ? 'slide-from-up-main-animation' : ''} weather-location`}>
               {inputValue.toLocaleUpperCase('tr')}
             </h1>
             <div className="cards-wrapper">
