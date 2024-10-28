@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+@import '../../styles/animation';
+
+.auth-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  .auth-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    height: 600px;
+    border: 1px solid #fff;
+    display: flex;
+    padding: 10px 10px;
+
+    .auth-login,
+    .auth-register {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-family: $font-prompt;
+      padding: 20px 40px;
+    }
+  }
+}

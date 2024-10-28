@@ -133,3 +133,32 @@
 
 
 // => WeatherCard Animations End
+
+// => WeatherWidget Animations Start
+
+@keyframes slideLeftToRightWidget {
+  0% {
+    opacity: 0;
+    transform: translate(-30px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)
+  }
+}
+
+@keyframes slideRightToRightWidget {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(30px, 0)
+  }
+}
+
+
+// => WeatherWidget Animations End

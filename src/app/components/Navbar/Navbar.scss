@@ -32,9 +32,26 @@
 }
 
 .nav-user-btn {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+
+  .login-link {
+    flex: 1;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    font-family: $font-prompt;
+    font-size: 19px;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  }
 }

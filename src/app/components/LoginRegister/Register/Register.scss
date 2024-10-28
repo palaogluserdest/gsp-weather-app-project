@@ -1,0 +1,31 @@
+@import '../../../styles/variables';
+
+.register-title {
+  font-size: 42px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.register-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .register-check-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    .register-check-box {
+      width: 15px;
+      height: 15px;
+    }
+
+    .register-accept-error-message {
+      color: red;
+      font-size: 13px;
+      margin: 0 auto;
+    }
+  }
+}

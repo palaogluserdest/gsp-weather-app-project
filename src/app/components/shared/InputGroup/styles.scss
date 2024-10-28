@@ -1,0 +1,36 @@
+@import '../../../styles/variables';
+
+.register-input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .register-input-label {
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    color: #acacac;
+    transition: top 0.3s ease-in, left 0.3s ease-in, color 0.3s ease-in, font-size 0.3s ease-in, ;
+  }
+
+  .register-input-area {
+    padding: 10px 25px;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+  }
+
+  .register-error-message {
+    position: absolute;
+    top: -21px;
+    right: 10px;
+    font-size: 13px;
+    margin-top: 5px;
+    color: red;
+    font-family: $font-prompt;
+  }
+}

@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Button from '../shared/Button';
 import NavLink from '../shared/NavLink';
 import './Navbar.scss';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -23,8 +23,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="nav-user-btn">
-        <Button type="button">Log-In</Button>
-        <Button type="button">REGISTER</Button>
+        <Link href="/auth" className="login-link">
+          Log-In
+        </Link>
       </div>
     </>
   );

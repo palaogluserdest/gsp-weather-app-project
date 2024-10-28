@@ -1,8 +1,10 @@
 'use client';
 import { useState } from 'react';
 import WeatherCard from './components/WeatherCard';
+import WeatherWidget from './components/WeatherWidget';
 import SearchBar from './components/SearchBar';
 import { FaRegStar } from 'react-icons/fa6';
+// import { FaStar } from 'react-icons/fa';
 import './page.scss';
 
 const Home = () => {
@@ -11,11 +13,16 @@ const Home = () => {
   const [isRefresh, setIsRefresh] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>('');
 
+  const [isClick, setIsClick] = useState<boolean>(false);
+
   const cards: number[] = [1, 2, 3, 4, 5];
+  const widgets: number[] = [1, 2, 3, 4, 5];
 
   const handleClick = (index: number) => {
     setExpendedCard(expendedCard === index ? null : index);
     setIsMounted(true);
+
+    setIsClick((prev) => !prev);
   };
 
   return (
@@ -32,6 +39,7 @@ const Home = () => {
               </h1>
               <button className="favorite-btn">
                 <FaRegStar size={40} fill="#fff" stroke="#fff" />
+                {/* <FaStar size={40} fill="#fff" stroke="#fff" /> */}
               </button>
             </div>
             <div className="cards-wrapper">
@@ -44,6 +52,9 @@ const Home = () => {
                   onClick={() => handleClick(index)}
                 />
               ))}
+            </div>
+            <div className="widget-wrapper">
+              {isMounted && widgets.map((widget, index) => <WeatherWidget key={index} id={index} isClick={isClick} />)}
             </div>
           </>
         )}
