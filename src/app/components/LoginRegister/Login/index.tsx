@@ -6,15 +6,15 @@ import './Login.scss';
 import InputGroup from '../../shared/InputGroup';
 
 type FormikValues = {
-  email: string;
-  password: string;
+  userEmail: string;
+  userPassword: string;
   rememberMe: boolean;
 };
 
 const Login = () => {
   const formikInitialValues: FormikValues = {
-    email: '',
-    password: '',
+    userEmail: '',
+    userPassword: '',
     rememberMe: false,
   };
 
@@ -27,8 +27,8 @@ const Login = () => {
       <h1 className="register-title">LOGIN</h1>
       <Formik initialValues={formikInitialValues} onSubmit={handleSubmitForm} validationSchema={loginValidationSchema}>
         <Form className="register-form-group">
-          <InputGroup type="email" label="Email" value="email" />
-          <InputGroup type="password" label="Password" value="password" />
+          <InputGroup type="email" label="Email" value="userEmail" />
+          <InputGroup type="password" label="Password" value="userPassword" />
 
           <div className="register-check-group">
             <Field type="checkbox" id="acceptBox" name="isAccept" className="register-check-box" />

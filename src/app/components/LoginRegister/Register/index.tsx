@@ -8,8 +8,8 @@ import InputGroup from '../../shared/InputGroup';
 type FormikValues = {
   firstName: string;
   lastName: string;
-  email: string;
-  password: string;
+  userEmail: string;
+  userPassword: string;
   rePassword: string;
   isAccept: boolean;
 };
@@ -18,8 +18,8 @@ const Register = () => {
   const formikInitialValues: FormikValues = {
     firstName: '',
     lastName: '',
-    email: '',
-    password: '',
+    userEmail: '',
+    userPassword: '',
     rePassword: '',
     isAccept: false,
   };
@@ -39,8 +39,8 @@ const Register = () => {
         <Form className="register-form-group">
           <InputGroup type="text" label="First Name" value="firstName" />
           <InputGroup type="text" label="Last Name" value="lastName" />
-          <InputGroup type="email" label="Email" value="email" />
-          <InputGroup type="password" label="Password" value="password" />
+          <InputGroup type="email" label="Email" value="userEmail" />
+          <InputGroup type="password" label="Password" value="userPassword" />
           <InputGroup type="password" label="Repeat Password" value="rePassword" />
 
           <div className="register-check-group">
