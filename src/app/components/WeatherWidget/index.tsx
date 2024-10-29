@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './WeatherWidget.scss';
 
 type WeatherWidgetProps = {
-  isClick: boolean;
+  isClick: boolean | null;
   id: number;
 };
 

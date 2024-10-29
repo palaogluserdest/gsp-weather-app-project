@@ -14,8 +14,6 @@
   background-color: #fff;
   color: #000;
   font-family: $font-prompt;
-  opacity: 0;
-  transform: translate(-30px, 0);
 
   .widget-title {
     font-weight: 500;
@@ -36,8 +34,12 @@
 
 .slide-left-to-right-widget {
   animation: 0.4s ease-in-out forwards slideLeftToRightWidget;
+  opacity: 0;
+  transform: translate(-30px, 0);
 }
 
 .slide-right-to-right-widget {
-  animation: 0.4s ease-in-out forwards slideRightToRightWidget;
+  animation: 0.4s ease-out forwards slideRightToRightWidget;
+  opacity: 1;
+  transform: translate(0, 0);
 }

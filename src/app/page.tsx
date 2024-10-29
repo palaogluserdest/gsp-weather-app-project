@@ -13,7 +13,8 @@ const Home = () => {
   const [isRefresh, setIsRefresh] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>('');
 
-  const [isClick, setIsClick] = useState<boolean>(false);
+  const [isClick, setIsClick] = useState<boolean | null>(null);
+  const [selectedCard, setSelectedCard] = useState<number | null>(null);
 
   const cards: number[] = [1, 2, 3, 4, 5];
   const widgets: number[] = [1, 2, 3, 4, 5];
@@ -22,7 +23,25 @@ const Home = () => {
     setExpendedCard(expendedCard === index ? null : index);
     setIsMounted(true);
 
-    setIsClick((prev) => !prev);
+    switch (true) {
+      case selectedCard === null:
+        setIsClick(true);
+        setSelectedCard(index);
+        break;
+      case selectedCard !== index:
+        setIsClick(false);
+
+        setTimeout(() => {
+          setIsClick(true);
+          setSelectedCard(index);
+        }, 100);
+        break;
+      case selectedCard === index:
+        setIsClick((prev) => !prev);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
