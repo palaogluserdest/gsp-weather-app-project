@@ -6,15 +6,15 @@ import './Login.scss';
 import InputGroup from '../../shared/InputGroup';
 
 type FormikValues = {
-  userEmail: string;
-  userPassword: string;
+  userLoginEmail: string;
+  userLoginPassword: string;
   rememberMe: boolean;
 };
 
 const Login = () => {
   const formikInitialValues: FormikValues = {
-    userEmail: '',
-    userPassword: '',
+    userLoginEmail: '',
+    userLoginPassword: '',
     rememberMe: false,
   };
 
@@ -24,20 +24,22 @@ const Login = () => {
 
   return (
     <>
-      <h1 className="register-title">LOGIN</h1>
+      <h1 className="login-title">LOGIN</h1>
       <Formik initialValues={formikInitialValues} onSubmit={handleSubmitForm} validationSchema={loginValidationSchema}>
-        <Form className="register-form-group">
-          <InputGroup type="email" label="Email" value="userEmail" />
-          <InputGroup type="password" label="Password" value="userPassword" />
+        <Form className="login-form-group">
+          <InputGroup type="email" label="Email" value="userLoginEmail" />
+          <InputGroup type="password" label="Password" value="userLoginPassword" />
 
-          <div className="register-check-group">
-            <Field type="checkbox" id="acceptBox" name="isAccept" className="register-check-box" />
-            <label htmlFor="acceptBox" className="register-check-box-label">
+          <div className="login-check-group">
+            <Field type="checkbox" id="acceptBox" name="rememberMe" className="login-check-box" />
+            <label htmlFor="acceptBox" className="login-check-box-label">
               Remember me
             </label>
-            <ErrorMessage name="isAccept" component="span" className="register-accept-error-message" />
+            <ErrorMessage name="isAccept" component="span" className="login-accept-error-message" />
           </div>
-          <Button type="submit">LOGIN</Button>
+          <Button type="submit" className="login-btn">
+            LOGIN
+          </Button>
         </Form>
       </Formik>
     </>

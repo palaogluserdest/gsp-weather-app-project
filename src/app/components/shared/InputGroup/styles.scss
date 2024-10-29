@@ -9,7 +9,7 @@
     font-size: 18px;
     font-weight: 400;
     position: absolute;
-    top: 10px;
+    top: 12px;
     left: 25px;
     color: #acacac;
     transition: top 0.3s ease-in, left 0.3s ease-in, color 0.3s ease-in, font-size 0.3s ease-in, ;
@@ -22,6 +22,7 @@
     border: none;
     outline: none;
     border-radius: 10px;
+    border: 1px solid #acacac;
   }
 
   .register-error-message {

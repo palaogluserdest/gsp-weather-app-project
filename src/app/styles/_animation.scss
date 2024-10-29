@@ -162,3 +162,33 @@
 
 
 // => WeatherWidget Animations End
+
+
+// => Auth Page Animations Start
+
+@keyframes slideUpToDownInAuth {
+  0% {
+    opacity: 0;
+    transform: translate(0, -40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slideDownToUpOutAuth {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, -40px);
+  }
+}
+
+
+// => Auth Page Animations End

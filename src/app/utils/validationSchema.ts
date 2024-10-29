@@ -6,8 +6,8 @@ const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const registerValidationSchema = Yup.object({
   firstName: Yup.string().required('You must write a name'),
   lastName: Yup.string().required('You must write a last name'),
-  userEmail: Yup.string().matches(emailRegex, 'Invalid email address').required('You must write email address'),
-  userPassword: Yup.string()
+  userRegisterEmail: Yup.string().matches(emailRegex, 'Invalid email address').required('You must write email address'),
+  userRegisterPassword: Yup.string()
     .min(8, 'Your password must be longer than 8 characters')
     .required('You must enter a password'),
   rePassword: Yup.string()
@@ -19,8 +19,8 @@ const registerValidationSchema = Yup.object({
 });
 
 const loginValidationSchema = Yup.object({
-  userEmail: Yup.string().matches(emailRegex, 'Invalid email address').required('You must write email address'),
-  userPassword: Yup.string()
+  userLoginEmail: Yup.string().matches(emailRegex, 'Invalid email address').required('You must write email address'),
+  userLoginPassword: Yup.string()
     .min(8, 'Your password must be longer than 8 characters')
     .required('You must enter a password'),
   rememberMe: Yup.boolean(),

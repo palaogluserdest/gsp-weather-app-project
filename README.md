@@ -47,8 +47,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
   - [x] Search Bar Component
   - [x] Weather Component
   - [ ] Widget Card Component (Tıklanan kartın hava durumu ile ilgili ek bilgiler yazsın içinde)
-  - [ ] Loading Component
-  - [ ] Login ve Register Component (Tek Sayfada gösterilecek)
+  - [x] Auth Page
+  - [x] Login ve Register Component (Tek Sayfada gösterilecek)
     - [x] Weather Component Ana Sayfa da 5 gün için gösterilecek.
     - [ ] Seçili günün saatlik hava durumunu gösteren component
 - [ ] Hava durumunu almak için api bağla (ChatGpt de öneriler var)
