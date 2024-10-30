@@ -26,4 +26,15 @@ const loginValidationSchema = Yup.object({
   rememberMe: Yup.boolean(),
 });
 
-export { registerValidationSchema, loginValidationSchema };
+const profileValidationSchema = Yup.object({
+  firstName: Yup.string().required('You must write a name'),
+  lastName: Yup.string().required('You must write a last name'),
+  userEmail: Yup.string().matches(emailRegex, 'Invalid email address').required('You must write an email'),
+});
+
+const passwordValidationSchema = Yup.object({
+  password: Yup.string().min(8, 'Your password must be longer than 8 characters'),
+  rePassword: Yup.string().oneOf([Yup.ref('password')], 'Password and Repeat Password must match'),
+});
+
+export { registerValidationSchema, loginValidationSchema, profileValidationSchema, passwordValidationSchema };

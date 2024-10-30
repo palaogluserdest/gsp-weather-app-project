@@ -4,18 +4,10 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Button from '../../shared/Button';
 import './Register.scss';
 import InputGroup from '../../shared/InputGroup';
-
-type FormikValues = {
-  firstName: string;
-  lastName: string;
-  userRegisterEmail: string;
-  userRegisterPassword: string;
-  rePassword: string;
-  isAccept: boolean;
-};
+import { FormikRegisterValues } from '@/app/types/types';
 
 const Register = () => {
-  const formikInitialValues: FormikValues = {
+  const formikInitialValues: FormikRegisterValues = {
     firstName: '',
     lastName: '',
     userRegisterEmail: '',
@@ -24,7 +16,7 @@ const Register = () => {
     isAccept: false,
   };
 
-  const handleSubmitForm = (values: FormikValues) => {
+  const handleSubmitForm = (values: FormikRegisterValues) => {
     console.log(values);
   };
 
@@ -37,11 +29,11 @@ const Register = () => {
         validationSchema={registerValidationSchema}
       >
         <Form className="register-form-group">
-          <InputGroup type="text" label="First Name" value="firstName" />
-          <InputGroup type="text" label="Last Name" value="lastName" />
-          <InputGroup type="email" label="Email" value="userRegisterEmail" />
-          <InputGroup type="password" label="Password" value="userRegisterPassword" />
-          <InputGroup type="password" label="Repeat Password" value="rePassword" />
+          <InputGroup type="text" label="First Name" id="firstName" name="firstName" />
+          <InputGroup type="text" label="Last Name" id="lastName" name="lastName" />
+          <InputGroup type="email" label="Email" id="userRegisterEmail" name="userRegisterEmail" />
+          <InputGroup type="password" label="Password" id="userRegisterPassword" name="userRegisterPassword" />
+          <InputGroup type="password" label="Repeat Password" id="rePassword" name="rePassword" />
 
           <div className="register-check-group">
             <Field type="checkbox" id="acceptBox" name="isAccept" className="register-check-box" />

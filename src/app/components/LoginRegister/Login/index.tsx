@@ -4,21 +4,16 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Button from '../../shared/Button';
 import './Login.scss';
 import InputGroup from '../../shared/InputGroup';
-
-type FormikValues = {
-  userLoginEmail: string;
-  userLoginPassword: string;
-  rememberMe: boolean;
-};
+import { FormikLoginValues } from '@/app/types/types';
 
 const Login = () => {
-  const formikInitialValues: FormikValues = {
+  const formikInitialValues: FormikLoginValues = {
     userLoginEmail: '',
     userLoginPassword: '',
     rememberMe: false,
   };
 
-  const handleSubmitForm = (values: FormikValues) => {
+  const handleSubmitForm = (values: FormikLoginValues) => {
     console.log(values);
   };
 
@@ -27,8 +22,8 @@ const Login = () => {
       <h1 className="login-title">LOGIN</h1>
       <Formik initialValues={formikInitialValues} onSubmit={handleSubmitForm} validationSchema={loginValidationSchema}>
         <Form className="login-form-group">
-          <InputGroup type="email" label="Email" value="userLoginEmail" />
-          <InputGroup type="password" label="Password" value="userLoginPassword" />
+          <InputGroup type="email" label="Email" id="userLoginEmail" name="userLoginEmail" />
+          <InputGroup type="password" label="Password" id="userLoginPassword" name="userLoginPassword" />
 
           <div className="login-check-group">
             <Field type="checkbox" id="acceptBox" name="rememberMe" className="login-check-box" />

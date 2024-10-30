@@ -40,19 +40,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [x] Proje dosyasını oluştur.
 - [x] Projede gerekli olacak klasörleri oluştur. (utils, libs, api ....)
 - [x] Projenin layout yapısını oluştur.
-- [ ] Components oluştur
+- [x] Components oluştur
   - [x] Navbar Component
   - [x] Footer Component
-  - [ ] Profile Component and Page
+  - [x] Profile Component and Page
   - [x] Search Bar Component
   - [x] Weather Component
-  - [ ] Widget Card Component (Tıklanan kartın hava durumu ile ilgili ek bilgiler yazsın içinde)
+  - [x] Widget Card Component (Tıklanan kartın hava durumu ile ilgili ek bilgiler yazsın içinde)
   - [x] Auth Page
   - [x] Login ve Register Component (Tek Sayfada gösterilecek)
     - [x] Weather Component Ana Sayfa da 5 gün için gösterilecek.
     - [ ] Seçili günün saatlik hava durumunu gösteren component
-- [ ] Hava durumunu almak için api bağla (ChatGpt de öneriler var)
-- [ ] Lokasyon bilgisini almak için Google API bagla
+- [ ] Hava durumunu almak için api bağla (Open Weather Maps API)
+- [ ] Lokasyon bilgisini almak için (Open Weather Maps API)
 - [ ] Kullanıcının seçtiği lokasyonları ve bilgilerini tutmak için Supabase bağlantısı oluştur.
   - [x] Kullanıcının seçtiği lokasyonları Search Bar altında göster
 

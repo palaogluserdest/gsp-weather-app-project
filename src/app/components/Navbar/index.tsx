@@ -26,6 +26,9 @@ const Navbar = () => {
         <Link href="/auth" className="login-link">
           Log-In
         </Link>
+        <Link href="/profile" className="login-link">
+          Profile
+        </Link>
       </div>
     </>
   );
