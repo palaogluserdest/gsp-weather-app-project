@@ -36,16 +36,9 @@ const WeatherCard: FC<WeatherCardProps> = ({ id, isExpended, isMounted, onClick 
           style={{ transition: 'all .6s ease-in-out' }}
         />
       </span>
-      <span className="card-temperature" style={{ fontSize: `${isExpended ? '52px' : '32px'}` }}>
+      <span className="card-temperature" style={{ fontSize: `${isExpended ? '82px' : '32px'}` }}>
         21 °C
       </span>
-      <div
-        className={`${isMounted ? (isExpended ? 'slide-left-to-right-animation' : 'slide-right-to-left-animation ') : ''} card-info-group`}
-      >
-        <span className="card-info-item">Hissedilen Sıcaklık: 20 °C</span>
-        <span className="card-info-item">Rüzgar Hızı: 3 m/s</span>
-        <span className="card-info-item">Nemlilik: 32%</span>
-      </div>
     </div>
   );
 };
