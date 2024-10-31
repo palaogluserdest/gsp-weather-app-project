@@ -1,10 +1,12 @@
 'use client';
 import Image from 'next/image';
 import Login from './Login';
-import './LoginRegister.scss';
 import Register from './Register';
 import Button from '../shared/Button';
 import { useState } from 'react';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
+import './LoginRegister.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginRegister = () => {
   const [isAuth, setIsAuth] = useState<boolean>(true);
@@ -17,6 +19,14 @@ const LoginRegister = () => {
   const loginStyles = {
     top: '0',
     left: '510px',
+  };
+
+  const showToastify = (message: string, type: 'success' | 'error') => {
+    if (type === 'success') {
+      toast.success(message);
+    } else {
+      toast.error(message);
+    }
   };
 
   return (
@@ -41,9 +51,23 @@ const LoginRegister = () => {
             </div>
           )}
         </div>
-        <div className="auth-login">{isAuth && <Login />}</div>
-        <div className="auth-register">{!isAuth && <Register />}</div>
+        <div className="auth-login">{isAuth && <Login showToastify={showToastify} />}</div>
+        <div className="auth-register">{!isAuth && <Register setIsAuth={setIsAuth} showToastify={showToastify} />}</div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+        className="toastify-bar"
+      />
     </div>
   );
 };

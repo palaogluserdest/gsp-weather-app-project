@@ -1,20 +1,55 @@
 'use client';
+import { FC } from 'react';
 import { loginValidationSchema } from '@/app/utils/validationSchema';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Button from '../../shared/Button';
-import './Login.scss';
 import InputGroup from '../../shared/InputGroup';
 import { FormikLoginValues } from '@/app/types/types';
+import { getUserFromFS, handleFirestoreError, signIn } from '@/app/libs/user';
+import './Login.scss';
+import { useRouter } from 'next/navigation';
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '@/app/libs/firebase';
 
-const Login = () => {
+type LoginProps = {
+  // eslint-disable-next-line no-unused-vars
+  showToastify: (message: string, type: 'success' | 'error') => void;
+};
+
+const Login: FC<LoginProps> = ({ showToastify }) => {
+  const router = useRouter();
+
   const formikInitialValues: FormikLoginValues = {
     userLoginEmail: '',
     userLoginPassword: '',
     rememberMe: false,
   };
 
-  const handleSubmitForm = (values: FormikLoginValues) => {
-    console.log(values);
+  const handleSubmitForm = async (values: FormikLoginValues) => {
+    try {
+      const user = await signIn(values.userLoginEmail, values.userLoginPassword);
+
+      const fetchedUser = await getUserFromFS(user.uid);
+
+      if (fetchedUser) {
+        const userRef = doc(db, 'users', fetchedUser.uid);
+        await updateDoc(userRef, {
+          isAuth: true,
+        });
+      }
+
+      if (user) {
+        showToastify('Log-ingin is successfully. Please redirect...', 'success');
+
+        setTimeout(() => {
+          router.push('/');
+        }, 2000);
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      const errorMessage = handleFirestoreError(error);
+      showToastify(errorMessage, 'error');
+    }
   };
 
   return (

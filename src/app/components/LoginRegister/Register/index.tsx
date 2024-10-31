@@ -1,14 +1,21 @@
 'use client';
+import React, { FC } from 'react';
 import { registerValidationSchema } from '@/app/utils/validationSchema';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Button from '../../shared/Button';
-import './Register.scss';
 import InputGroup from '../../shared/InputGroup';
 import { FormikRegisterValues, userProfile } from '@/app/types/types';
-import { createUserToDB, signUp } from '@/app/libs/user';
+import { createUserToDB, handleFirestoreError, signUp } from '@/app/libs/user';
 import { Timestamp } from 'firebase/firestore';
+import './Register.scss';
 
-const Register = () => {
+type RegisterProps = {
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
+  // eslint-disable-next-line no-unused-vars
+  showToastify: (message: string, type: 'success' | 'error') => void;
+};
+
+const Register: FC<RegisterProps> = ({ setIsAuth, showToastify }) => {
   const formikInitialValues: FormikRegisterValues = {
     firstName: '',
     lastName: '',
@@ -19,17 +26,30 @@ const Register = () => {
   };
 
   const handleSubmitForm = async (values: FormikRegisterValues) => {
-    const user = await signUp(values.userRegisterEmail, values.userRegisterPassword);
+    try {
+      const user = await signUp(values.userRegisterEmail, values.userRegisterPassword);
 
-    const newUser: userProfile = {
-      uid: user.uid,
-      firstName: values.firstName,
-      lastName: values.lastName,
-      email: values.userRegisterEmail,
-      createdAt: Timestamp.fromDate(new Date()),
-    };
+      const newUser: userProfile = {
+        uid: user.uid,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.userRegisterEmail,
+        isAuth: false,
+        createdAt: Timestamp.fromDate(new Date()),
+      };
 
-    await createUserToDB(newUser);
+      await createUserToDB(newUser);
+
+      showToastify('You have successfully registered. You are being guided...', 'success');
+
+      setTimeout(() => {
+        setIsAuth(true);
+      }, 2000);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      const errorMessage = handleFirestoreError(error);
+      showToastify(errorMessage, 'error');
+    }
   };
 
   return (
