@@ -11,7 +11,7 @@ const registerValidationSchema = Yup.object({
     .min(8, 'Your password must be longer than 8 characters')
     .required('You must enter a password'),
   rePassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Password and Repeat Password must match')
+    .oneOf([Yup.ref('userRegisterPassword')], 'Password and Repeat Password must match')
     .required('You must enter confirm password'),
   isAccept: Yup.boolean()
     .oneOf([true], 'You must accept the terms')

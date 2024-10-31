@@ -53,8 +53,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
     - [ ] Seçili günün saatlik hava durumunu gösteren component
 - [ ] Hava durumunu almak için api bağla (Open Weather Maps API)
 - [ ] Lokasyon bilgisini almak için (Open Weather Maps API)
-- [ ] Kullanıcının seçtiği lokasyonları ve bilgilerini tutmak için Supabase bağlantısı oluştur.
-  - [x] Kullanıcının seçtiği lokasyonları Search Bar altında göster
+- [ ] Kullanıcının seçtiği lokasyonları ve bilgilerini tutmak için Firebase bağlantısı oluştur.
+  - [x] Register fonksiyonu
+  - [x] Log-in fonksiyonu
+  - [ ] Navbar da giriş yapmış kullanıcıyı yakalama
+  - [ ] Giriş yapmış kullanıcıya favori ekle butonunu göster ve favorileri Search Bar altında gösterme
+    - [ ] Favori ekleme fonksiyonu
+    - [ ] Favorileri getirme fonksiyonu
 
 ## Proje Özellikleri
 

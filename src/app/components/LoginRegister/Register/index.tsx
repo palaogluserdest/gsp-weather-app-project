@@ -4,7 +4,9 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Button from '../../shared/Button';
 import './Register.scss';
 import InputGroup from '../../shared/InputGroup';
-import { FormikRegisterValues } from '@/app/types/types';
+import { FormikRegisterValues, userProfile } from '@/app/types/types';
+import { createUserToDB, signUp } from '@/app/libs/user';
+import { Timestamp } from 'firebase/firestore';
 
 const Register = () => {
   const formikInitialValues: FormikRegisterValues = {
@@ -16,8 +18,18 @@ const Register = () => {
     isAccept: false,
   };
 
-  const handleSubmitForm = (values: FormikRegisterValues) => {
-    console.log(values);
+  const handleSubmitForm = async (values: FormikRegisterValues) => {
+    const user = await signUp(values.userRegisterEmail, values.userRegisterPassword);
+
+    const newUser: userProfile = {
+      uid: user.uid,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.userRegisterEmail,
+      createdAt: Timestamp.fromDate(new Date()),
+    };
+
+    await createUserToDB(newUser);
   };
 
   return (

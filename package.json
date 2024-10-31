@@ -11,6 +11,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "firebase": "^11.0.1",
     "formik": "^2.4.6",
     "next": "14.2.16",
     "react": "^18",

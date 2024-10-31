@@ -1,3 +1,5 @@
+import { Timestamp } from 'firebase/firestore';
+
 export type FormikRegisterValues = {
   firstName: string;
   lastName: string;
@@ -22,4 +24,12 @@ export type FormikProfileValues = {
 export type FormikPasswordValues = {
   password: string;
   rePassword: string;
+};
+
+export type userProfile = {
+  uid: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  createdAt: Timestamp;
 };
