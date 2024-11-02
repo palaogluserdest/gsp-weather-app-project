@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './WeatherCard.scss';
-import DynamicIcon from '../shared/DynamicIcon';
+import DynamicIcon, { iconName } from '../shared/DynamicIcon';
 import { formatDate } from '@/app/utils/helpers';
 
 type WeatherCardProps = {
@@ -38,6 +38,27 @@ const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, 
     }
   };
 
+  const weatherCardIcon = (weatherCode: number): iconName => {
+    switch (true) {
+      case weatherCode === 200 || weatherCode === 232:
+        return 'tunderly';
+      case weatherCode === 300 || weatherCode === 321:
+        return 'tunderly';
+      case weatherCode === 500 || weatherCode === 531:
+        return 'rainy';
+      case weatherCode === 600 || weatherCode === 622:
+        return 'snowy';
+      case weatherCode === 701 || weatherCode === 781:
+        return 'mistly';
+      case weatherCode === 800:
+        return 'sunny';
+      case weatherCode === 801 || weatherCode === 802 || weatherCode === 803 || weatherCode === 804:
+        return 'partlyCloudy';
+      default:
+        return 'unknown';
+    }
+  };
+
   return (
     <div
       className={`${isExpended ? 'active' : ''} card-container`}
@@ -58,7 +79,7 @@ const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, 
       </span>
       <span className="card-icon">
         <DynamicIcon
-          icon="sunny"
+          icon={weatherCardIcon(wCode)}
           size={isExpended ? 150 : 90}
           color="#fff"
           style={{ transition: 'all .6s ease-in-out' }}

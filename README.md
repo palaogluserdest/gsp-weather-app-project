@@ -50,32 +50,40 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
   - [x] Auth Page
   - [x] Login ve Register Component (Tek Sayfada gösterilecek)
     - [x] Weather Component Ana Sayfa da 5 gün için gösterilecek.
-    - [ ] Seçili günün saatlik hava durumunu gösteren component
-- [ ] Hava durumunu almak için api bağla (Open Weather Maps API)
-- [ ] Lokasyon bilgisini almak için (Open Weather Maps API)
-- [ ] Kullanıcının seçtiği lokasyonları ve bilgilerini tutmak için Firebase bağlantısı oluştur.
+- [x] Hava durumunu almak için api bağla (Open Weather Maps API)
+- [x] Lokasyon bilgisini almak için (Open Weather Maps API)
+- [x] Kullanıcının seçtiği lokasyonları ve bilgilerini tutmak için Firebase bağlantısı oluştur.
   - [x] Register fonksiyonu
   - [x] Log-in fonksiyonu
-  - [ ] Navbar da giriş yapmış kullanıcıyı yakalama
-  - [ ] Giriş yapmış kullanıcıya favori ekle butonunu göster ve favorileri Search Bar altında gösterme
-    - [ ] Favori ekleme fonksiyonu
-    - [ ] Favorileri getirme fonksiyonu
+  - [x] Navbar da giriş yapmış kullanıcıyı yakalama
+  - [x] Giriş yapmış kullanıcıya favori ekle butonunu göster ve favorileri Search Bar altında gösterme
+    - [x] Favori ekleme fonksiyonu
+    - [x] Favorileri getirme fonksiyonu
+- [ ] middleware yapısı oluştur
+- [ ] RESPONSIVE DESIGN
+  - [ ] Navbar responsive hale getirilecek ve mobil navbar eklenecek
+  - [ ] Footer responsive hale getirilecek
+  - [ ] Search Bar responsive hale getirilecek
+  - [ ] Ana Sayfadaki kartların gösterimi responsive hale getirilecek
+  - [ ] Ana Sayfadaki kartların ek bilgi kartları tablet gösteriminden sonra kaldırılacak
+  - [ ] Profil sayfası responsive hale getirilecek
 
 ## Proje Özellikleri
 
 - Ana sayada 5 günlük hava durumu gösterilecek ve seçili olan dışında geri kalanlar kısmı bilgi gösterecek
-- Seçili olan günün altında 24 saatlik hava durumu gösterilecek
+- Seçili olan günün altında o günle ilgili ek bilgi widgetları gösterilecek
 - Günlük hava durumu görünümlerinde olan ya da olacak hava durumunun efekti gözükecek
 - Kullanıcı kayıt olabilecek ve giriş yapabilecek
-- Kullanıcı giriş yaparsa seçtiği lokasyon favorilerine ekleyebilecek ve ana sayfada favori lokasyonlar için hava durumları gösterilecek
-- Kullanıcı profil sayfasında kayıtlı lokasyonları düzenleyebilecek. (Silme ya da ekleme)
+- Kullanıcı giriş yaparsa seçtiği lokasyon favorilerine ekleyebilecek ve çıkarabilecek
+- Kullanıcı ana sayfada kayıtlı lokasyonları görebilecek ve düzenleyebilecek. (Silme ya da ekleme)
+- Kullanıcı profil sayfasında bilgilerini değiştirme ve şifre değiştirme işlemlerini yapabilecek.
 
 ## Hava Durumu API
 
 - Konum Bulmak için:
 
 ```http
-https://api.openweathermap.org/geo/1.0/direct?q={location}&limit=5&appid={API Key}
+https://api.openweathermap.org/geo/1.0/direct?q={location}&limit=1&appid={API Key}
 ```
 
 - Hava Durumu için
