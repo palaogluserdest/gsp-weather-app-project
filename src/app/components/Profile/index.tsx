@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import './Profile.scss';
 import InputGroup from '../shared/InputGroup';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { FormikPasswordValues, FormikProfileValues } from '@/app/types/types';
 import Button from '../shared/Button';
 import { passwordValidationSchema, profileValidationSchema } from '@/app/utils/validationSchema';
 import { useAuth } from '@/app/hooks/useAuth';
-import { changePassword } from '@/app/libs/user';
+import { changePassword, changeProfileInfo } from '@/app/libs/user';
+import { toast } from 'react-toastify';
 
 const ProfileComponent = () => {
   const { userData } = useAuth();
@@ -23,16 +25,26 @@ const ProfileComponent = () => {
     rePassword: '',
   };
 
-  const handleProfileSubmit = (value: FormikProfileValues) => {
-    console.log(value);
+  const handleProfileSubmit = async (value: FormikProfileValues) => {
+    try {
+      await changeProfileInfo(value.firstName, value.lastName, value.userEmail);
+      toast.success('Your information was changed successfully');
+    } catch (error: any) {
+      toast.error(error.message);
+    }
   };
 
-  const handlePasswordSubmit = async (values: FormikPasswordValues) => {
-    await changePassword(values.curPassword, values.password);
-
-    values.curPassword = '';
-    values.password = '';
-    values.rePassword = '';
+  const handlePasswordSubmit = async (
+    values: FormikPasswordValues,
+    resetForm: FormikHelpers<FormikPasswordValues>['resetForm'],
+  ) => {
+    try {
+      await changePassword(values.curPassword, values.password);
+      toast.success('Your password was changed successfully');
+      resetForm();
+    } catch (error: any) {
+      toast.error(error.message);
+    }
   };
 
   return (
@@ -57,7 +69,7 @@ const ProfileComponent = () => {
       </Formik>
       <Formik
         initialValues={formikPasswordValues}
-        onSubmit={handlePasswordSubmit}
+        onSubmit={(values, { resetForm }) => handlePasswordSubmit(values, resetForm)}
         validationSchema={passwordValidationSchema}
       >
         <Form className="password-form-container">

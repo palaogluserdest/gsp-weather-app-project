@@ -16,9 +16,9 @@ export type FormikLoginValues = {
 };
 
 export type FormikProfileValues = {
-  firstName?: string;
-  lastName?: string;
-  userEmail?: string;
+  firstName: string;
+  lastName: string;
+  userEmail: string;
 };
 
 export type FormikPasswordValues = {

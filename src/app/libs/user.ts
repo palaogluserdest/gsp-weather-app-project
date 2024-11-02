@@ -115,12 +115,40 @@ export const changePassword = async (currentPassword: string, newPassword: strin
 
       // Yeni şifreyi ayarlama
       await updatePassword(user, newPassword);
-      console.log('Şifre başarıyla güncellendi.');
     } catch (error) {
-      console.error('Şifre güncellenirken hata oluştu:', error);
+      if (error instanceof FirebaseError) {
+        throw error;
+      } else {
+        throw new Error('An unexpected error occurred');
+      }
     }
   } else {
-    console.log('Oturum açmış kullanıcı bulunamadı.');
+    throw new Error('Authenticated user was not found');
+  }
+};
+
+// => User Info Changing
+
+export const changeProfileInfo = async (firstName: string, lastName: string, email: string) => {
+  const user = auth.currentUser;
+
+  if (user) {
+    try {
+      const userRef = doc(db, 'users', user.uid);
+      await updateDoc(userRef, {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+      });
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        throw error;
+      } else {
+        throw new Error('An unexpected error occurred');
+      }
+    }
+  } else {
+    throw new Error('Authenticated user was not found');
   }
 };
 
