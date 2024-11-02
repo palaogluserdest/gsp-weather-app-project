@@ -6,6 +6,7 @@ import { FormikPasswordValues, FormikProfileValues } from '@/app/types/types';
 import Button from '../shared/Button';
 import { passwordValidationSchema, profileValidationSchema } from '@/app/utils/validationSchema';
 import { useAuth } from '@/app/hooks/useAuth';
+import { changePassword } from '@/app/libs/user';
 
 const ProfileComponent = () => {
   const { userData } = useAuth();
@@ -17,6 +18,7 @@ const ProfileComponent = () => {
   };
 
   const formikPasswordValues: FormikPasswordValues = {
+    curPassword: '',
     password: '',
     rePassword: '',
   };
@@ -25,8 +27,12 @@ const ProfileComponent = () => {
     console.log(value);
   };
 
-  const handlePasswordSubmit = (values: FormikPasswordValues) => {
-    console.log(values);
+  const handlePasswordSubmit = async (values: FormikPasswordValues) => {
+    await changePassword(values.curPassword, values.password);
+
+    values.curPassword = '';
+    values.password = '';
+    values.rePassword = '';
   };
 
   return (
@@ -57,6 +63,13 @@ const ProfileComponent = () => {
         <Form className="password-form-container">
           <h2 className="password-title">Password</h2>
           <div className="password-wrapper">
+            <InputGroup
+              className="re-password"
+              label="Current Password"
+              type="password"
+              id="curPassword"
+              name="curPassword"
+            />
             <InputGroup className="password" label="Password" type="password" id="userPassword" name="password" />
             <InputGroup
               className="re-password"

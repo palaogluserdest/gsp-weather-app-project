@@ -22,6 +22,7 @@ export type FormikProfileValues = {
 };
 
 export type FormikPasswordValues = {
+  curPassword: string;
   password: string;
   rePassword: string;
 };

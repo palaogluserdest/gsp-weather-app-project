@@ -6,10 +6,10 @@ import Button from '../../shared/Button';
 import InputGroup from '../../shared/InputGroup';
 import { FormikLoginValues } from '@/app/types/types';
 import { getUserFromFS, handleFirestoreError, signIn } from '@/app/libs/user';
-import './Login.scss';
 import { useRouter } from 'next/navigation';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '@/app/libs/firebase';
+import './Login.scss';
 
 type LoginProps = {
   // eslint-disable-next-line no-unused-vars
@@ -43,7 +43,7 @@ const Login: FC<LoginProps> = ({ showToastify }) => {
 
         setTimeout(() => {
           router.push('/');
-        }, 2000);
+        }, 1500);
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {

@@ -1,4 +1,11 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+  signInWithEmailAndPassword,
+  signOut,
+  updatePassword,
+} from 'firebase/auth';
 import { auth, db } from './firebase';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { userProfile } from '../types/types';
@@ -92,6 +99,28 @@ export const getUserFromFS = async (uid: string) => {
       // FirebaseError değilse genel bir hata olarak fırlatıyoruz
       throw new Error('An unexpected error occurred');
     }
+  }
+};
+
+// => User Password Changing
+
+export const changePassword = async (currentPassword: string, newPassword: string) => {
+  const user = auth.currentUser;
+
+  if (user) {
+    try {
+      // Mevcut şifreyle yeniden kimlik doğrulama
+      const credential = EmailAuthProvider.credential(user.email!, currentPassword);
+      await reauthenticateWithCredential(user, credential);
+
+      // Yeni şifreyi ayarlama
+      await updatePassword(user, newPassword);
+      console.log('Şifre başarıyla güncellendi.');
+    } catch (error) {
+      console.error('Şifre güncellenirken hata oluştu:', error);
+    }
+  } else {
+    console.log('Oturum açmış kullanıcı bulunamadı.');
   }
 };
 
