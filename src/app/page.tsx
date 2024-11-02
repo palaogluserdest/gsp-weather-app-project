@@ -34,6 +34,8 @@ const Home = () => {
     setExpendedCard(expendedCard === index ? null : index);
     setIsMounted(true);
 
+    console.log(dailyWeather);
+
     setCardOwnInfo(dailyWeatherInfos[index]);
 
     switch (true) {
