@@ -2,18 +2,15 @@
 import Image from 'next/image';
 import NavLink from '../shared/NavLink';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '@/app/libs/firebase';
-import { getUserFromFS, logOut } from '@/app/libs/user';
-import { userProfile } from '@/app/types/types';
+import { logOut } from '@/app/libs/user';
 import Button from '../shared/Button';
-import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { Bounce, toast } from 'react-toastify';
 import './Navbar.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from '@/app/hooks/useAuth';
 
 const Navbar = () => {
-  const [userData, setUserData] = useState<userProfile | null>(null);
+  const { userData } = useAuth();
 
   const handleLogOut = async (uid: string) => {
     try {
@@ -46,22 +43,6 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const fetchedUser = await getUserFromFS(user.uid);
-
-        if (fetchedUser) {
-          setUserData(fetchedUser);
-        } else {
-          setUserData(null);
-        }
-      }
-    });
-
-    return () => unsubscribe();
-  }, [userData]);
-
   return (
     <>
       <div className="nav-logo">
@@ -91,11 +72,12 @@ const Navbar = () => {
             <Link href="/profile" className="login-link">
               {userData.firstName}
             </Link>
-            <Button onClick={() => handleLogOut(userData.uid)}>Sign Out</Button>
+            <Button className="signout-btn" onClick={() => handleLogOut(userData.uid)}>
+              Sign Out
+            </Button>
           </>
         )}
       </div>
-      <ToastContainer />
     </>
   );
 };

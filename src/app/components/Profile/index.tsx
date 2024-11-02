@@ -2,16 +2,14 @@
 import './Profile.scss';
 import InputGroup from '../shared/InputGroup';
 import { Form, Formik } from 'formik';
-import { FormikPasswordValues, FormikProfileValues, userProfile } from '@/app/types/types';
+import { FormikPasswordValues, FormikProfileValues } from '@/app/types/types';
 import Button from '../shared/Button';
 import { passwordValidationSchema, profileValidationSchema } from '@/app/utils/validationSchema';
-import { useEffect, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '@/app/libs/firebase';
-import { getUserFromFS } from '@/app/libs/user';
+import { useAuth } from '@/app/hooks/useAuth';
 
 const ProfileComponent = () => {
-  const [userData, setUserData] = useState<userProfile | null>(null);
+  const { userData } = useAuth();
+
   const formikProfileValues: FormikProfileValues = {
     firstName: userData?.firstName || '',
     lastName: userData?.lastName || '',
@@ -30,22 +28,6 @@ const ProfileComponent = () => {
   const handlePasswordSubmit = (values: FormikPasswordValues) => {
     console.log(values);
   };
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const fetchedUser = await getUserFromFS(user.uid);
-
-        if (fetchedUser) {
-          setUserData(fetchedUser);
-        } else {
-          setUserData(null);
-        }
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
 
   return (
     <div className="profile-container">

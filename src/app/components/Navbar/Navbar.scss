@@ -38,7 +38,7 @@
   gap: 15px;
 
   .login-link {
-    flex: 1;
+    flex: 2;
     border: 1px solid #fff;
     border-radius: 10px;
     background-color: transparent;
@@ -54,5 +54,10 @@
       background-color: #fff;
       color: #000;
     }
+  }
+
+  .signout-btn {
+    padding: 7px 25px;
+    border-radius: 10px;
   }
 }

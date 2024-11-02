@@ -34,8 +34,9 @@ const Register: FC<RegisterProps> = ({ setIsAuth, showToastify }) => {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.userRegisterEmail,
+        favorites: [],
         isAuth: false,
-        createdAt: Timestamp.fromDate(new Date()),
+        createdAt: Timestamp.now(),
       };
 
       await createUserToDB(newUser);

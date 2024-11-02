@@ -6,6 +6,7 @@ import React from 'react';
 import Image from 'next/image';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { Bounce, ToastContainer } from 'react-toastify';
 
 const prompt = localFont({
   src: [
@@ -78,6 +79,20 @@ export default function RootLayout({
           <footer className="footer-container">
             <Footer />
           </footer>
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            transition={Bounce}
+            className="toastify-bar"
+          />
         </div>
       </body>
     </html>

@@ -1,15 +1,20 @@
 import React, { FC } from 'react';
 import './WeatherCard.scss';
 import DynamicIcon from '../shared/DynamicIcon';
+import { formatDate } from '@/app/utils/helpers';
 
 type WeatherCardProps = {
   id: number;
   isExpended: boolean;
   isMounted: boolean;
   onClick: () => void;
+  oneDay?: any;
 };
 
-const WeatherCard: FC<WeatherCardProps> = ({ id, isExpended, isMounted, onClick }) => {
+const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, onClick }) => {
+  const formatedDate = formatDate(oneDay.dt_txt.split(' ')[0]);
+  const onlyDay = formatedDate.split(' ')[0];
+
   return (
     <div
       className={`${isExpended ? 'active' : ''} card-container`}
@@ -20,13 +25,13 @@ const WeatherCard: FC<WeatherCardProps> = ({ id, isExpended, isMounted, onClick 
       <span
         className={`${isMounted ? (isExpended ? ' slide-to-up-animation' : 'slide-from-up-animation') : ''} card-date-day`}
       >
-        24
+        {onlyDay}
       </span>
       <span
         className={`${isMounted ? (isExpended ? ' slide-from-down-animation' : 'slide-to-down-animation') : ''} card-date-full`}
         style={{ opacity: '0' }}
       >
-        24 October 2024
+        {formatedDate}
       </span>
       <span className="card-icon">
         <DynamicIcon
@@ -37,7 +42,7 @@ const WeatherCard: FC<WeatherCardProps> = ({ id, isExpended, isMounted, onClick 
         />
       </span>
       <span className="card-temperature" style={{ fontSize: `${isExpended ? '82px' : '32px'}` }}>
-        21 °C
+        {Math.round(oneDay.main.temp)} °C
       </span>
     </div>
   );

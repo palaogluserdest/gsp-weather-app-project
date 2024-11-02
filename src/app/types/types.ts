@@ -31,6 +31,15 @@ export type userProfile = {
   firstName: string;
   lastName: string;
   email: string;
+  favorites: string[];
   isAuth: boolean;
-  createdAt: Timestamp;
+  createdAt?: Timestamp;
+};
+
+export type dailyWeatherInfosProps = {
+  maxTemp: number;
+  minTemp: number;
+  feelsLike: number;
+  windSpeed: number;
+  humidity: number;
 };

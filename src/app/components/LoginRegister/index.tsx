@@ -4,7 +4,7 @@ import Login from './Login';
 import Register from './Register';
 import Button from '../shared/Button';
 import { useState } from 'react';
-import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import './LoginRegister.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -54,20 +54,6 @@ const LoginRegister = () => {
         <div className="auth-login">{isAuth && <Login showToastify={showToastify} />}</div>
         <div className="auth-register">{!isAuth && <Register setIsAuth={setIsAuth} showToastify={showToastify} />}</div>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-        transition={Bounce}
-        className="toastify-bar"
-      />
     </div>
   );
 };
