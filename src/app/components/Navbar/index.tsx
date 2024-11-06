@@ -15,6 +15,12 @@ const Navbar = () => {
   const handleLogOut = async (uid: string) => {
     try {
       await logOut(uid);
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
       toast.success('Log-out successfully');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
