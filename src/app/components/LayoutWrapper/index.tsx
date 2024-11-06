@@ -17,6 +17,10 @@ const LayoutWrapper: FC<LayoutWrapperProps> = ({ children }) => {
   useEffect(() => {
     const handleResize = () => {
       setWindowSize(window.innerWidth);
+
+      if (windowSize <= 1024) {
+        setIsOpen(false);
+      }
     };
 
     window.addEventListener('resize', handleResize);
