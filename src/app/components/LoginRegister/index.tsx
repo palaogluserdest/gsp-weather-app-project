@@ -6,7 +6,6 @@ import Button from '../shared/Button';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import './LoginRegister.scss';
-import 'react-toastify/dist/ReactToastify.css';
 
 const LoginRegister = () => {
   const [isAuth, setIsAuth] = useState<boolean>(true);

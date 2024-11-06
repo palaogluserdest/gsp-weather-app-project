@@ -4,7 +4,7 @@ import NavLink from '../shared/NavLink';
 import Link from 'next/link';
 import { logOut } from '@/app/libs/user';
 import Button from '../shared/Button';
-import { Bounce, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import './Navbar.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '@/app/hooks/useAuth';
@@ -16,30 +16,10 @@ const Navbar = () => {
     try {
       await logOut(uid);
 
-      toast.success('Log-out successfully', {
-        position: 'top-right',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'colored',
-        transition: Bounce,
-      });
+      toast.success('Log-out successfully');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      toast.error(error.message, {
-        position: 'top-right',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'colored',
-        transition: Bounce,
-      });
+      toast.error(error.message);
     }
   };
 
@@ -63,7 +43,7 @@ const Navbar = () => {
       </div>
       <div className="nav-user-btn">
         {!userData?.isAuth && (
-          <Link href="/auth" className="login-link">
+          <Link href="/user-auth" className="login-link">
             Log-In
           </Link>
         )}

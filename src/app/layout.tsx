@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import './globals.scss';
-import './layout.scss';
 import React from 'react';
 import Image from 'next/image';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { Bounce, ToastContainer } from 'react-toastify';
+import './globals.scss';
+import './layout.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 const prompt = localFont({
   src: [

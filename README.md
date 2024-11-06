@@ -91,3 +91,5 @@ https://api.openweathermap.org/geo/1.0/direct?q={location}&limit=1&appid={API Ke
 ```http
 https://api.openweathermap.org/data/2.5/forecast?units=metric&lat={}&lon={}&appid={API Key}
 ```
+
+"src/types/**/*.d.ts"

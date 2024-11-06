@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   updatePassword,
+  User,
 } from 'firebase/auth';
 import { auth, db } from './firebase';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
@@ -13,12 +14,12 @@ import { FirebaseError } from 'firebase/app';
 
 // => Sing In with Email and Password
 
-export const signIn = async (email: string, password: string) => {
+export const signInFB = async (email: string, password: string) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    return user;
+    return user as User;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error) {
     if (error instanceof FirebaseError) {
@@ -109,11 +110,9 @@ export const changePassword = async (currentPassword: string, newPassword: strin
 
   if (user) {
     try {
-      // Mevcut şifreyle yeniden kimlik doğrulama
       const credential = EmailAuthProvider.credential(user.email!, currentPassword);
       await reauthenticateWithCredential(user, credential);
 
-      // Yeni şifreyi ayarlama
       await updatePassword(user, newPassword);
     } catch (error) {
       if (error instanceof FirebaseError) {
