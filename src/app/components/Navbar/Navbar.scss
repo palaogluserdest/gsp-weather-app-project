@@ -7,11 +7,19 @@
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: 1024px) {
+    justify-content: flex-start;
+  }
+
   .logo-text {
     color: #fff;
     font-family: $font-prompt, sans-serif;
     font-weight: 900;
     font-size: 38px;
+
+    @media screen and (max-width: 480px) {
+      font-size: 28px;
+    }
   }
 }
 
@@ -23,6 +31,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 1350px) {
+    flex: 1.5;
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 
   .nav-links-items {
     display: flex;
@@ -44,9 +60,14 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+  flex: 1;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 
   .login-link {
-    flex: 2;
+
     border: 1px solid #fff;
     border-radius: 10px;
     background-color: transparent;
@@ -67,5 +88,25 @@
   .signout-btn {
     padding: 7px 25px;
     border-radius: 10px;
+  }
+}
+
+.mobil-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    color: white;
+  }
+
+  .mobil-menu-btn {
+    border: none;
+
+    &:hover {
+      background-color: inherit !important;
+      color: inherit !important;
+    }
   }
 }

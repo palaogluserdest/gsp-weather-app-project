@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+
+.mobil-menu {
+  width: 100%;
+  height: 95px;
+  padding: 0 30px;
+  position: absolute;
+  top: 105px;
+  left: 0;
+  justify-content: space-between;
+  background-color: #fff;
+
+  .mobil-nav-links {
+    flex: 2;
+    font-family: $font-prompt, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    @media screen and (max-width: 648px) {
+      flex: 1.5;
+    }
+
+    .mobil-nav-links-items {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+
+      .mobil-nav-links-item {
+
+        a {
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .mobil-nav-user-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex: 1;
+
+    @media screen and (max-width: 648px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+
+    .mobil-login-link {
+      border: 1px solid #000;
+      border-radius: 10px;
+      background-color: transparent;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: #000;
+      font-family: $font-prompt;
+      font-size: 18px;
+      font-weight: 500;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+
+
+    }
+
+    .mobil-signout-btn {
+      padding: 1px 12px;
+      border-radius: 10px;
+      border: 1px solid #000;
+      border-radius: 10px;
+      color: #000;
+      font-size: 18px;
+      font-weight: 500;
+
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+}

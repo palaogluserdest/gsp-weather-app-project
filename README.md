@@ -61,7 +61,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
     - [x] Favorileri getirme fonksiyonu
 - [x] middleware yapısı oluştur
 - [ ] RESPONSIVE DESIGN
-  - [ ] Navbar responsive hale getirilecek ve mobil navbar eklenecek
+  - [x] Navbar responsive hale getirilecek ve mobil navbar eklenecek
   - [ ] Footer responsive hale getirilecek
   - [ ] Search Bar responsive hale getirilecek
   - [ ] Ana Sayfadaki kartların gösterimi responsive hale getirilecek

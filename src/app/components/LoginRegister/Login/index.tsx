@@ -52,7 +52,7 @@ const Login: FC<LoginProps> = ({ showToastify }) => {
         showToastify('Log-in is successfully. Please redirect...', 'success');
         setTimeout(() => {
           router.push('/');
-        }, 1500);
+        }, 1000);
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {

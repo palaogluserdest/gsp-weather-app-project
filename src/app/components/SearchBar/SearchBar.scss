@@ -13,6 +13,10 @@
   background-color: white;
   margin: 0 10px;
 
+  @media screen and (max-width: 1024px) {
+    margin-top: 65px;
+  }
+
   .search-input {
     width: 100%;
     padding: 15px 35px;

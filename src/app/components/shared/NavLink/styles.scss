@@ -23,3 +23,10 @@
   }
 
 }
+
+.mobil-nav-link {
+  &::after {
+    background-color: #000 !important;
+
+  }
+}

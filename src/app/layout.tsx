@@ -1,13 +1,10 @@
+import React from 'react';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import React from 'react';
-import Image from 'next/image';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import { Bounce, ToastContainer } from 'react-toastify';
 import './globals.scss';
 import './layout.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import LayoutWrapper from './components/LayoutWrapper';
 
 const prompt = localFont({
   src: [
@@ -59,38 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${prompt.variable}`}>
-        <div className="container">
-          <div className="background-image">
-            <Image
-              src="/assets/images/background-picture.webp"
-              fill
-              alt="background image"
-              style={{ objectFit: 'cover' }}
-            />
-            {/* <video src="/assets/videos/clear-weather.webm" autoPlay loop muted></video> */}
-          </div>
-          <nav className="navbar-container">
-            <Navbar />
-          </nav>
-          <main className="main-container">{children}</main>
-          <footer className="footer-container">
-            <Footer />
-          </footer>
-          <ToastContainer
-            position="top-right"
-            autoClose={1500}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-            transition={Bounce}
-            className="toastify-bar"
-          />
-        </div>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

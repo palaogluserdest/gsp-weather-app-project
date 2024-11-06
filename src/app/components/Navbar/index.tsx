@@ -4,11 +4,19 @@ import Link from 'next/link';
 import { logOut } from '@/app/libs/user';
 import Button from '../shared/Button';
 import { toast } from 'react-toastify';
-import './Navbar.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '@/app/hooks/useAuth';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { RiCloseLargeLine } from 'react-icons/ri';
+import './Navbar.scss';
+import React, { FC } from 'react';
 
-const Navbar = () => {
+type NavbarProps = {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Navbar: FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
   const { userData } = useAuth();
 
   const handleLogOut = async (uid: string) => {
@@ -62,6 +70,12 @@ const Navbar = () => {
             </Button>
           </>
         )}
+      </div>
+      <div className="mobil-menu-btn">
+        <Button className="mobil-menu-btn" onClick={() => setIsOpen((prev) => !prev)}>
+          {!isOpen && <RxHamburgerMenu size={35} />}
+          {isOpen && <RiCloseLargeLine size={35} />}
+        </Button>
       </div>
     </>
   );
