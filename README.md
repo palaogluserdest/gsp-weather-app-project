@@ -59,7 +59,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
   - [x] Giriş yapmış kullanıcıya favori ekle butonunu göster ve favorileri Search Bar altında gösterme
     - [x] Favori ekleme fonksiyonu
     - [x] Favorileri getirme fonksiyonu
-- [ ] middleware yapısı oluştur
+- [x] middleware yapısı oluştur
 - [ ] RESPONSIVE DESIGN
   - [ ] Navbar responsive hale getirilecek ve mobil navbar eklenecek
   - [ ] Footer responsive hale getirilecek
@@ -92,4 +92,4 @@ https://api.openweathermap.org/geo/1.0/direct?q={location}&limit=1&appid={API Ke
 https://api.openweathermap.org/data/2.5/forecast?units=metric&lat={}&lon={}&appid={API Key}
 ```
 
-"src/types/**/*.d.ts"
+"src/types/\*_/_.d.ts"

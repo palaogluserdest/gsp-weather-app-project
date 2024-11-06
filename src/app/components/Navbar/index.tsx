@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import NavLink from '../shared/NavLink';
 import Link from 'next/link';
 import { logOut } from '@/app/libs/user';
@@ -32,7 +31,7 @@ const Navbar = () => {
   return (
     <>
       <div className="nav-logo">
-        <Image src="/assets/images/logo-dark.png" alt="logo" width={150} height={80} />
+        <h2 className="logo-text">Weather APP</h2>
       </div>
       <div className="nav-links">
         <ul className="nav-links-items">

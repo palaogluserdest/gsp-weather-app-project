@@ -5,6 +5,14 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  .logo-text {
+    color: #fff;
+    font-family: $font-prompt, sans-serif;
+    font-weight: 900;
+    font-size: 38px;
+  }
 }
 
 .nav-links {
