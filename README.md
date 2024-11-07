@@ -62,11 +62,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [x] middleware yapısı oluştur
 - [ ] RESPONSIVE DESIGN
   - [x] Navbar responsive hale getirilecek ve mobil navbar eklenecek
-  - [ ] Footer responsive hale getirilecek
-  - [ ] Search Bar responsive hale getirilecek
-  - [ ] Ana Sayfadaki kartların gösterimi responsive hale getirilecek
-  - [ ] Ana Sayfadaki kartların ek bilgi kartları tablet gösteriminden sonra kaldırılacak
+  - [x] Footer responsive hale getirilecek
+  - [x] Search Bar responsive hale getirilecek
+  - [x] Ana Sayfadaki kartların gösterimi responsive hale getirilecek
+  - [x] Ana Sayfadaki kartların ek bilgi kartları tablet gösteriminden sonra kaldırılacak
   - [ ] Profil sayfası responsive hale getirilecek
+  - [ ] Login ve Register sayfası responsive hale getirilecek
 
 ## Proje Özellikleri
 

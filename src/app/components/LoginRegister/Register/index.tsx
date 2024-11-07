@@ -1,5 +1,5 @@
 'use client';
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { registerValidationSchema } from '@/app/utils/validationSchema';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Button from '../../shared/Button';
@@ -16,6 +16,7 @@ type RegisterProps = {
 };
 
 const Register: FC<RegisterProps> = ({ setIsAuth, showToastify }) => {
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
   const formikInitialValues: FormikRegisterValues = {
     firstName: '',
     lastName: '',
@@ -53,6 +54,18 @@ const Register: FC<RegisterProps> = ({ setIsAuth, showToastify }) => {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowSize]);
+
   return (
     <>
       <h1 className="register-title">REGISTER</h1>
@@ -78,6 +91,11 @@ const Register: FC<RegisterProps> = ({ setIsAuth, showToastify }) => {
           <Button type="submit" className="register-btn">
             REGISTER
           </Button>
+          {windowSize <= 864 && (
+            <Button className="redirect-login" onClick={() => setIsAuth(true)}>
+              Do you have an account. Log-in.
+            </Button>
+          )}
         </Form>
       </Formik>
     </>

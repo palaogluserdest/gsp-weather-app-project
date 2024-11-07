@@ -1,5 +1,5 @@
 'use client';
-import { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { loginValidationSchema } from '@/app/utils/validationSchema';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Button from '../../shared/Button';
@@ -14,9 +14,11 @@ import { db } from '@/app/libs/firebase';
 type LoginProps = {
   // eslint-disable-next-line no-unused-vars
   showToastify: (message: string, type: 'success' | 'error') => void;
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Login: FC<LoginProps> = ({ showToastify }) => {
+const Login: FC<LoginProps> = ({ showToastify, setIsAuth }) => {
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
   const router = useRouter();
 
   const formikInitialValues: FormikLoginValues = {
@@ -61,6 +63,18 @@ const Login: FC<LoginProps> = ({ showToastify }) => {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowSize]);
+
   return (
     <>
       <h1 className="login-title">LOGIN</h1>
@@ -79,6 +93,11 @@ const Login: FC<LoginProps> = ({ showToastify }) => {
           <Button type="submit" className="login-btn">
             LOGIN
           </Button>
+          {windowSize <= 864 && (
+            <Button className="redirect-register" onClick={() => setIsAuth(false)}>
+              Don{"'"}t you have an account. Register
+            </Button>
+          )}
         </Form>
       </Formik>
     </>

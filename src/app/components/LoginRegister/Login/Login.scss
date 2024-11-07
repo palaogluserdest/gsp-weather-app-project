@@ -38,4 +38,14 @@
       background-color: #000;
     }
   }
+
+  .redirect-register {
+    color: #000;
+    font-size: 14px;
+    border: none;
+
+    &:hover {
+      color: #3a3a3a;
+    }
+  }
 }

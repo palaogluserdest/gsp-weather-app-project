@@ -3,21 +3,22 @@ import Image from 'next/image';
 import Login from './Login';
 import Register from './Register';
 import Button from '../shared/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import './LoginRegister.scss';
 
 const LoginRegister = () => {
   const [isAuth, setIsAuth] = useState<boolean>(true);
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
 
   const registerStyles = {
     top: '0',
-    left: '0',
+    right: '510px',
   };
 
   const loginStyles = {
     top: '0',
-    left: '510px',
+    right: '0',
   };
 
   const showToastify = (message: string, type: 'success' | 'error') => {
@@ -27,6 +28,18 @@ const LoginRegister = () => {
       toast.error(message);
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowSize]);
 
   return (
     <div className="auth-container">
@@ -50,8 +63,12 @@ const LoginRegister = () => {
             </div>
           )}
         </div>
-        <div className="auth-login">{isAuth && <Login showToastify={showToastify} />}</div>
-        <div className="auth-register">{!isAuth && <Register setIsAuth={setIsAuth} showToastify={showToastify} />}</div>
+        <div className="auth-login" style={{ display: windowSize <= 864 && !isAuth ? 'none' : '' }}>
+          {isAuth && <Login setIsAuth={setIsAuth} showToastify={showToastify} />}
+        </div>
+        <div className="auth-register" style={{ display: windowSize <= 864 && isAuth ? 'none' : '' }}>
+          {!isAuth && <Register setIsAuth={setIsAuth} showToastify={showToastify} />}
+        </div>
       </div>
     </div>
   );
