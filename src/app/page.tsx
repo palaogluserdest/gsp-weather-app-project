@@ -20,6 +20,7 @@ const Home = () => {
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
   const [dailyWeather, setDailyWeather] = useState<any>(null);
   const [dailyWeatherInfos, setDailyWeatherInfos] = useState<dailyWeatherInfosProps[]>([]);
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
   const [cardOwnInfo, setCardOwnInfo] = useState<dailyWeatherInfosProps>({
     maxTemp: 0,
     minTemp: 0,
@@ -75,6 +76,18 @@ const Home = () => {
     }
   }, [userData, inputValue]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowSize]);
+
   return (
     <>
       <div className="search-bar-container">
@@ -114,13 +127,15 @@ const Home = () => {
                 />
               ))}
             </div>
-            <div className="widget-wrapper">
-              {/* {isMounted && cardOwnInfo?.length.map((widget, index) => <WeatherWidget key={index} id={index} isClick={isClick} />)} */}
-              {isMounted &&
-                Object.keys(cardOwnInfo).map((key, index) => (
-                  <WeatherWidget key={index} cardKey={key} id={index} isClick={isClick} value={cardOwnInfo} />
-                ))}
-            </div>
+            {isClick && windowSize > 864 && (
+              <div className="widget-wrapper">
+                {/* {isMounted && cardOwnInfo?.length.map((widget, index) => <WeatherWidget key={index} id={index} isClick={isClick} />)} */}
+                {isMounted &&
+                  Object.keys(cardOwnInfo).map((key, index) => (
+                    <WeatherWidget key={index} cardKey={key} id={index} isClick={isClick} value={cardOwnInfo} />
+                  ))}
+              </div>
+            )}
           </>
         )}
       </div>

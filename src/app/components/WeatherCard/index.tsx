@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+'use client';
+import React, { FC, useEffect, useState } from 'react';
 import './WeatherCard.scss';
 import DynamicIcon, { iconName } from '../shared/DynamicIcon';
 import { formatDate } from '@/app/utils/helpers';
@@ -13,6 +14,7 @@ type WeatherCardProps = {
 };
 
 const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, onClick }) => {
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
   const formatedDate = formatDate(oneDay.dt_txt.split(' ')[0]);
   const onlyDay = formatedDate.split(' ')[0];
   const wCode = oneDay.weather[0].id;
@@ -59,9 +61,21 @@ const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, 
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowSize]);
+
   return (
     <div
-      className={`${isExpended ? 'active' : ''} card-container`}
+      className={`${isExpended && windowSize > 864 ? 'active' : ''} ${isExpended && windowSize <= 864 ? 'mobil-active' : ''} card-container`}
       onClick={onClick}
       style={{ animationDelay: `${id * 0.2}s` }}
     >
@@ -80,12 +94,21 @@ const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, 
       <span className="card-icon">
         <DynamicIcon
           icon={weatherCardIcon(wCode)}
-          size={isExpended ? 150 : 90}
+          size={isExpended && windowSize > 864 ? 150 : isExpended && windowSize <= 864 ? 100 : 90}
           color="#fff"
-          style={{ transition: 'all .6s ease-in-out' }}
+          style={{
+            transition: 'all .6s ease-in-out',
+            marginTop: isExpended && windowSize > 864 ? '0' : isExpended && windowSize <= 864 ? '40px' : '0',
+          }}
         />
       </span>
-      <span className="card-temperature" style={{ fontSize: `${isExpended ? '82px' : '32px'}` }}>
+      <span
+        className="card-temperature"
+        style={{
+          fontSize: isExpended && windowSize > 864 ? '82px' : isExpended && windowSize <= 864 ? ' 52px' : '32px',
+          marginTop: isExpended && windowSize > 864 ? '0' : isExpended && windowSize <= 864 ? ' 40px' : '0',
+        }}
+      >
         {Math.round(oneDay.main.temp)}°C
       </span>
     </div>

@@ -5,6 +5,7 @@ import './globals.scss';
 import './layout.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import LayoutWrapper from './components/LayoutWrapper';
+import { Bounce, ToastContainer } from 'react-toastify';
 
 const prompt = localFont({
   src: [
@@ -57,6 +58,20 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${prompt.variable}`}>
         <LayoutWrapper>{children}</LayoutWrapper>
+        <ToastContainer
+          position="top-right"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          transition={Bounce}
+          className="toastify-bar"
+        />
       </body>
     </html>
   );

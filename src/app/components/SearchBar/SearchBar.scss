@@ -17,6 +17,10 @@
     margin-top: 65px;
   }
 
+  @media screen and (max-width: 864px) {
+    margin-top: 90px;
+  }
+
   .search-input {
     width: 100%;
     padding: 15px 35px;
