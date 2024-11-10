@@ -11,7 +11,7 @@ type LayoutWrapperProps = {
 
 const LayoutWrapper: FC<LayoutWrapperProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const [windowSize, setWindowSize] = useState<number>(0);
 
   useEffect(() => {
     const handleResize = () => {

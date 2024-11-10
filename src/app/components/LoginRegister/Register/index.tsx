@@ -16,7 +16,7 @@ type RegisterProps = {
 };
 
 const Register: FC<RegisterProps> = ({ setIsAuth, showToastify }) => {
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const [windowSize, setWindowSize] = useState<number>(0);
   const formikInitialValues: FormikRegisterValues = {
     firstName: '',
     lastName: '',

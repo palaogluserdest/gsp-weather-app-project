@@ -18,7 +18,7 @@ type LoginProps = {
 };
 
 const Login: FC<LoginProps> = ({ showToastify, setIsAuth }) => {
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const [windowSize, setWindowSize] = useState<number>(0);
   const router = useRouter();
 
   const formikInitialValues: FormikLoginValues = {
@@ -40,6 +40,13 @@ const Login: FC<LoginProps> = ({ showToastify, setIsAuth }) => {
       const userData = await response.json();
 
       const user = userData.user;
+      const error = userData.error;
+
+      if (error) {
+        const errorMessage = handleFirestoreError(error);
+        showToastify(errorMessage, 'error');
+        return;
+      }
 
       const fetchedUser = await getUserFromFS(user.uid);
 

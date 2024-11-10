@@ -16,7 +16,9 @@ export const POST = async (req: Request) => {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    if (!user) return NextResponse.json({ message: 'giriş başarılı' }, { status: 401 });
+    if (!user) {
+      return NextResponse.json({ message: 'login failed' }, { status: 401 });
+    }
 
     const payload = {
       id: user.uid,
@@ -42,8 +44,7 @@ export const POST = async (req: Request) => {
 
     return response;
   } catch (error) {
-    console.log('error:', error);
-    return NextResponse.json({ message: 'giriş başarılı' }, { status: 500 });
+    return NextResponse.json({ message: 'giriş başarılı', error }, { status: 500 });
   }
 };
 

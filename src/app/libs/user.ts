@@ -158,6 +158,9 @@ export const handleFirestoreError = (error: FirebaseError) => {
     case 'auth/wrong-password':
       return 'The email or password you entered is incorrect. Please try again.';
 
+    case 'auth/invalid-credential':
+      return 'Email or password is wrong. Plase check it.';
+
     case 'auth/user-not-found':
       return 'The email or password you entered is incorrect. Please try again.';
 

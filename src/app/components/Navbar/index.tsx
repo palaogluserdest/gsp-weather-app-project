@@ -10,6 +10,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { RiCloseLargeLine } from 'react-icons/ri';
 import './Navbar.scss';
 import React, { FC } from 'react';
+import { useRouter } from 'next/navigation';
 
 type NavbarProps = {
   isOpen: boolean;
@@ -18,6 +19,7 @@ type NavbarProps = {
 
 const Navbar: FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
   const { userData } = useAuth();
+  const router = useRouter();
 
   const handleLogOut = async (uid: string) => {
     try {
@@ -30,6 +32,7 @@ const Navbar: FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
       });
 
       toast.success('Log-out successfully');
+      router.push('/');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast.error(error.message);
@@ -39,7 +42,9 @@ const Navbar: FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
   return (
     <>
       <div className="nav-logo">
-        <h2 className="logo-text">Weather APP</h2>
+        <Link href="/">
+          <h2 className="logo-text">Weather APP</h2>
+        </Link>
       </div>
       <div className="nav-links">
         <ul className="nav-links-items">

@@ -9,7 +9,7 @@ import './LoginRegister.scss';
 
 const LoginRegister = () => {
   const [isAuth, setIsAuth] = useState<boolean>(true);
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const [windowSize, setWindowSize] = useState<number>(0);
 
   const registerStyles = {
     top: '0',
