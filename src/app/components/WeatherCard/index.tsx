@@ -79,7 +79,7 @@ const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, 
       onClick={onClick}
       style={{ animationDelay: `${id * 0.2}s` }}
     >
-      <video autoPlay loop muted className="card-video-bg">
+      <video playsInline autoPlay loop muted className="card-video-bg">
         <source src={backgroundVideo(wCode)} type="video/webm" />
       </video>
       <span
