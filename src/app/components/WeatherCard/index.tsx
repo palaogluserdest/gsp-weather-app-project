@@ -14,7 +14,7 @@ type WeatherCardProps = {
 };
 
 const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, onClick }) => {
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const [windowSize, setWindowSize] = useState<number>(0);
   const formatedDate = formatDate(oneDay.dt_txt.split(' ')[0]);
   const onlyDay = formatedDate.split(' ')[0];
   const wCode = oneDay.weather[0].id;
