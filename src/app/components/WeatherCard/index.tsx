@@ -32,7 +32,7 @@ const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, 
       case weatherCode === 701 || weatherCode === 781:
         return '/assets/videos/mistly.webm';
       case weatherCode === 800:
-        return '/assets/videos/clear-weather.webm';
+        return '/assets/videos/clear-weather-2.webm';
       case weatherCode === 801 || weatherCode === 802 || weatherCode === 803 || weatherCode === 804:
         return '/assets/videos/partly-cloudy.webm';
       default:
