@@ -20,6 +20,10 @@
   gap: 15px;
   width: 100%;
 
+  @media screen and (max-width: 864px) {
+    margin-bottom: 40px;
+  }
+
   .weather-location-group {
     width: 100%;
     display: flex;

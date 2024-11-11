@@ -12,6 +12,10 @@
     transform: translate(-50%, -50%);
   }
 
+  @media screen and (max-width: 840px) {
+    scale: 1.2;
+  }
+
   video {
     object-fit: cover;
     width: 100%;

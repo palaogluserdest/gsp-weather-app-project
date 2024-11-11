@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
       <div className="footer-text">
         <p className="text-content">
-          Design by Serdest PALAOGLU, Havin KARACIL. Reserved all right.
+          Design by Serdest PALAOGLU. Reserved all right.
           <FaRegCopyright size={18} color="#fff" /> You can click for{' '}
           <Link href="https://github.com/palaogluserdest/gsp-weather-app-project">GitHub Repo</Link>
         </p>
