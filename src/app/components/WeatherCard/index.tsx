@@ -79,7 +79,9 @@ const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, 
       onClick={onClick}
       style={{ animationDelay: `${id * 0.2}s` }}
     >
-      <video src={backgroundVideo(wCode)} autoPlay loop muted className="card-video-bg"></video>
+      <video autoPlay loop muted className="card-video-bg">
+        <source src={backgroundVideo(wCode)} type="video/webm" />
+      </video>
       <span
         className={`${isMounted ? (isExpended ? ' slide-to-up-animation' : 'slide-from-up-animation') : ''} card-date-day`}
       >
