@@ -22,19 +22,19 @@ const WeatherCard: FC<WeatherCardProps> = ({ oneDay, id, isExpended, isMounted, 
   const backgroundVideo = (weatherCode: number): string => {
     switch (true) {
       case weatherCode === 200 || weatherCode === 232:
-        return '/assets/videos/thunderly.webm';
+        return '/assets/videos/thunderly-2.webm';
       case weatherCode === 300 || weatherCode === 321:
-        return '/assets/videos/thunderly.webm';
+        return '/assets/videos/thunderly-2.webm';
       case weatherCode === 500 || weatherCode === 531:
-        return '/assets/videos/rain.webm';
+        return '/assets/videos/rain-2.webm';
       case weatherCode === 600 || weatherCode === 622:
-        return '/assets/videos/snowy.webm';
+        return '/assets/videos/snowy-2.webm';
       case weatherCode === 701 || weatherCode === 781:
-        return '/assets/videos/mistly.webm';
+        return '/assets/videos/mistly-2.webm';
       case weatherCode === 800:
         return '/assets/videos/clear-weather-2.webm';
       case weatherCode === 801 || weatherCode === 802 || weatherCode === 803 || weatherCode === 804:
-        return '/assets/videos/partly-cloudy.webm';
+        return '/assets/videos/partly-cloudy-2.webm';
       default:
         return '/assets/images/background-picture.webp';
     }
