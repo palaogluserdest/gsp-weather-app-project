@@ -59,6 +59,7 @@
 
     .auth-login,
     .auth-register {
+      max-width: 500px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -69,6 +70,10 @@
       @media screen and (max-width: 480px) {
         padding: 20px 20px;
       }
+    }
+
+    .auth-register {
+      margin-left: auto;
     }
   }
 }
