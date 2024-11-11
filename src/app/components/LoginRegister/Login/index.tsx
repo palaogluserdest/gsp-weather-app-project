@@ -18,7 +18,7 @@ type LoginProps = {
 };
 
 const Login: FC<LoginProps> = ({ showToastify, setIsAuth }) => {
-  const [windowSize, setWindowSize] = useState<number>(0);
+  const [windowSize, setWindowSize] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 100000);
   const router = useRouter();
 
   const formikInitialValues: FormikLoginValues = {

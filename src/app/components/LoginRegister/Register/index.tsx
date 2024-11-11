@@ -64,7 +64,7 @@ const Register: FC<RegisterProps> = ({ setIsAuth, showToastify }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [windowSize]);
+  }, []);
 
   return (
     <>

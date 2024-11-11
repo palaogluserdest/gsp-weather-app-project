@@ -20,7 +20,7 @@ const Home = () => {
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
   const [dailyWeather, setDailyWeather] = useState<any>(null);
   const [dailyWeatherInfos, setDailyWeatherInfos] = useState<dailyWeatherInfosProps[]>([]);
-  const [windowSize, setWindowSize] = useState<number>(0);
+  const [windowSize, setWindowSize] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 100000);
   const [cardOwnInfo, setCardOwnInfo] = useState<dailyWeatherInfosProps>({
     maxTemp: 0,
     minTemp: 0,
